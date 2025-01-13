@@ -1,0 +1,12 @@
+[Unit]
+Description=Eject AICSemi USB mass-storage device on boot
+After=systemd-udevd.service
+Wants=systemd-udevd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/aic-msc-eject.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

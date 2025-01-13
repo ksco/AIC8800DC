@@ -1,0 +1,6 @@
+# AICSemi AIC8800 USB dongles enumerate first as a USB mass-storage device.
+# Eject the MSC device so it switches to Wi-Fi / Bluetooth mode.
+# Matches both common MSC product IDs: 5721 and 5722.
+
+ACTION=="add", SUBSYSTEM=="block", ATTRS{idVendor}=="a69c", ATTRS{idProduct}=="5721", SYMLINK+="aicudisk", ENV{UDISKS_IGNORE}="1", RUN+="/usr/local/bin/aic-msc-eject.sh /dev/%k"
+ACTION=="add", SUBSYSTEM=="block", ATTRS{idVendor}=="a69c", ATTRS{idProduct}=="5722", SYMLINK+="aicudisk", ENV{UDISKS_IGNORE}="1", RUN+="/usr/local/bin/aic-msc-eject.sh /dev/%k"
