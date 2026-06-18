@@ -227,7 +227,7 @@ MODULE_PARM_DESC(ftl, "Firmware trace level  (Default: \"\")");
 module_param_named(dpsm, rwnx_mod_params.dpsm, bool, S_IRUGO);
 MODULE_PARM_DESC(dpsm, "Enable Dynamic PowerSaving (Default: 1-Enabled)");
 
-#ifdef DEFAULT_COUNTRY_CODE
+#if 0 // def DEFAULT_COUNTRY_CODE
 char default_ccode[4] = DEFAULT_COUNTRY_CODE;
 #else
 char default_ccode[4] = "00";

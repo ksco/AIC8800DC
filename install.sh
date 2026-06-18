@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -xe
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DRIVER_DIR="${SCRIPT_DIR}/drivers/aic8800"
@@ -29,7 +29,7 @@ echo "[1/5] Cleaning previous build artifacts..."
 make clean >/dev/null 2>&1 || true
 
 echo "[2/5] Building driver modules for kernel ${KVER}..."
-make KVER="${KVER}" KDIR="${KDIR}" modules
+make -j4 KVER="${KVER}" KDIR="${KDIR}" modules
 
 echo "[3/5] Installing driver modules..."
 if [ "$(id -u)" -eq 0 ]; then
